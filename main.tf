@@ -21,6 +21,6 @@ resource "null_resource" "download_private_key" {
   count = "${var.create ? 1 : 0}"
 
   provisioner "local-exec" {
-    command = "echo '${tls_private_key.key[0].private_key_pem}' > ${format("%s.key.pem", random_id[0].name.hex)} && chmod ${var.permissions} ${format("%s.key.pem", random_id.name[0].hex)}"
+    command = "echo '${tls_private_key.key[0].private_key_pem}' > ${format("%s.key.pem", random_id.name[0].hex)} && chmod ${var.permissions} ${format("%s.key.pem", random_id.name[0].hex)}"
   }
 }
